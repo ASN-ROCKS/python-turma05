@@ -35,3 +35,4 @@ df[["salario"]]
 df_01 = df[["nomes", "idades"]]
 
 # %%
+
