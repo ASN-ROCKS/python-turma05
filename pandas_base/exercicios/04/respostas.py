@@ -36,7 +36,9 @@ df_transacao.head(2)
 piso = df_transacao["dtCriacao"] >= '2025-02-01'
 teto = df_transacao["dtCriacao"] < '2025-02-02'
 filtro = piso & teto
-df_transacao[filtro]
+df_transacao[filtro].shape[0]
 
 # %%
+
+(pd.to_datetime(df_transacao["dtCriacao"]).dt.date.astype(str) == "2025-02-01").sum()
 
