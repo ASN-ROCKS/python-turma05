@@ -29,3 +29,4 @@ GROUP BY seller_id
 
 df_summary = pd.read_sql_query(query, engine)
 df_summary
+
