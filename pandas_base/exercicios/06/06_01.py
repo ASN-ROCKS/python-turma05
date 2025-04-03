@@ -38,10 +38,7 @@ transacoes.head()
 # 06.04 - Quem teve mais transações de Streak?
 
 produtos = pd.read_csv("../../data/produtos.csv")
-produtos
-
 transacoes_produto = pd.read_csv("../../data/transacao_produto.csv")
-
 filtro = transacoes_produto[transacoes_produto["idProduto"]==12]["idTransacao"]
 
 (transacoes[transacoes["idTransacao"].isin(filtro)]
@@ -54,8 +51,11 @@ filtro = transacoes_produto[transacoes_produto["idProduto"]==12]["idTransacao"]
 # %%
 # 06.05 - Qual a média de transações / dia?
 
-
 transacoes["dtCriacao"] = pd.to_datetime(transacoes["dtCriacao"]).dt.date
 transacoes["idTransacao"].nunique() / transacoes["dtCriacao"].nunique()
 
 # %%
+# 06.06 - Como podemos calcular as estatísticas descritivas dos pontos das transações de cada usuário?
+
+(transacoes.groupby(by="idCliente")["qtdePontos"]
+           .describe())
